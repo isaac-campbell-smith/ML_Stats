@@ -63,8 +63,8 @@ class agg_catboost:
 
         return
 
-    def plot_feature_importances(self, title='Feature Importances on Catboost Model'):
-        fig, ax = plt.subplots()
+    def plot_feature_importances(self, title='Feature Importances on Catboost Model', figsize=(9, 6)):
+        fig, ax = plt.subplots(figsize=figsize)
 
         for i, feat in enumerate(self.df.columns):
             ax.barh(feat, width=np.mean([f[i] for f in self.feat_importances]))
