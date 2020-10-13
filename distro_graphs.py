@@ -32,3 +32,9 @@ def plot_target_distribution(y, title='Target Variable'):
 
     print("Skewness: %f" % y.skew())
     print("Kurtosis: %f" % y.kurt())
+
+def missing_data_report(df):
+    num_values = df.shape[0]
+    pct_missing = [round(df[column].isna().sum()/num_values ,4)*100 for column in df.columns]
+    missing = pd.DataFrame(index=df.columns, data=pct_missing).sort_values(by=0, ascending=False)
+    return missing
